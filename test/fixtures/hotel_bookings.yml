@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  guest_id: 1
+  guest_name: MyString
+  hotel_name: MyString
+  check_in: 2011-09-05 23:00:31
+  check_out: 2011-09-05 23:00:31
+  status: MyString
+
+two:
+  guest_id: 1
+  guest_name: MyString
+  hotel_name: MyString
+  check_in: 2011-09-05 23:00:31
+  check_out: 2011-09-05 23:00:31
+  status: MyString

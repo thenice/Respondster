@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  guest_id: 1
+  passenger_name: MyString
+  airline: MyString
+  flight_number: MyString
+  departure_city: MyString
+  arrival_city: MyString
+  departure_time: 2011-09-05 22:58:27
+  arrival_time: 2011-09-05 22:58:27
+  inbound: false
+
+two:
+  guest_id: 1
+  passenger_name: MyString
+  airline: MyString
+  flight_number: MyString
+  departure_city: MyString
+  arrival_city: MyString
+  departure_time: 2011-09-05 22:58:27
+  arrival_time: 2011-09-05 22:58:27
+  inbound: false

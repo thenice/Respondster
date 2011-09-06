@@ -1,0 +1,2 @@
+module HotelBookingsHelper
+end

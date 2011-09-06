@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Guest:</b>
+  <%= @flight.guest_id %>
+</p>
+
+<p>
+  <b>Passenger name:</b>
+  <%= @flight.passenger_name %>
+</p>
+
+<p>
+  <b>Airline:</b>
+  <%= @flight.airline %>
+</p>
+
+<p>
+  <b>Flight number:</b>
+  <%= @flight.flight_number %>
+</p>
+
+<p>
+  <b>Departure city:</b>
+  <%= @flight.departure_city %>
+</p>
+
+<p>
+  <b>Arrival city:</b>
+  <%= @flight.arrival_city %>
+</p>
+
+<p>
+  <b>Departure time:</b>
+  <%= @flight.departure_time %>
+</p>
+
+<p>
+  <b>Arrival time:</b>
+  <%= @flight.arrival_time %>
+</p>
+
+<p>
+  <b>Inbound:</b>
+  <%= @flight.inbound %>
+</p>
+
+
+<%= link_to 'Edit', edit_flight_path(@flight) %> |
+<%= link_to 'Back', flights_path %>

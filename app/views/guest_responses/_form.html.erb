@@ -1,0 +1,25 @@
+<%= form_for(@guest_response) do |f| %>
+  <% if @guest_response.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guest_response.errors.count, "error") %> prohibited this guest_response from being saved:</h2>
+
+      <ul>
+      <% @guest_response.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :guest_id %><br />
+    <%= f.number_field :guest_id %>
+  </div>
+  <div class="field">
+    <%= f.label :number_attending %><br />
+    <%= f.number_field :number_attending %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

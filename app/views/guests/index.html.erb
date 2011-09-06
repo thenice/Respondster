@@ -2,7 +2,9 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Guest name</th>
+    <th>Partner name</th>
+    <th>Name on envelope</th>
     <th>Street address</th>
     <th>City</th>
     <th>State</th>
@@ -16,7 +18,9 @@
 
 <% @guests.each do |guest| %>
   <tr>
-    <td><%= guest.name %></td>
+    <td><%= guest.guest_name %></td>
+    <td><%= guest.partner_name %></td>
+    <td><%= guest.name_on_envelope %></td>
     <td><%= guest.street_address %></td>
     <td><%= guest.city %></td>
     <td><%= guest.state %></td>

@@ -1,0 +1,11 @@
+<h2>Enter your information to get started</h2>
+<strong><%= flash[:alert] %></strong>
+<%= form_tag '/locate_guest', :method => 'POST' do %>
+  <%= label_tag :first_initial, 'First Initial' %>:
+  <%= text_field_tag :first_initial %><br />
+  <%= label_tag :last_name, 'Last Name' %>:
+  <%= text_field_tag :last_name %><br />
+  <%= label_tag :zipcode, 'Zip Code' %>:
+  <%= text_field_tag :zipcode %><br />
+  <%= submit_tag :Respond %><br />
+<% end %>

@@ -1,5 +1,15 @@
 Rsvp::Application.routes.draw do
+  resources :hotel_bookings
+  resources :flights
+  resources :guest_responses
+  
   resources :guests
+  
+  match 'locate_guest' => 'guests#locate', :as => 'locate_guest'
+  match 'list_matches' => 'guests#list_matches', :as => 'list_matches'
+  match 'select_match' => 'guests#select_match', :as => 'select_match'
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

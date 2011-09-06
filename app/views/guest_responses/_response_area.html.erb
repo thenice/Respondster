@@ -1,0 +1,16 @@
+<div id = "response-area">
+<% if @guest_response.responded? %>
+  <h2>There are <%= @guest_response.number_attending %> attending</h2>
+<% else %>
+  <%= form_for(@guest_response) do |f| %>
+    <div class="field">
+      <%= f.label :number_attending %><br />
+      <%= f.number_field :number_attending %> of <%= @guest_response.guest.number_of_guests %>
+    </div>
+    <%= f.submit "Reply",
+      :confirm => "You can only reply once online. Are you sure?" %> (Please note that you must call in to change your reply)
+  <% end %>
+<% end %>
+</div>
+
+

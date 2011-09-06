@@ -1,0 +1,25 @@
+<h1>Listing guest_responses</h1>
+
+<table>
+  <tr>
+    <th>Guest</th>
+    <th>Number attending</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @guest_responses.each do |guest_response| %>
+  <tr>
+    <td><%= guest_response.guest_id %></td>
+    <td><%= guest_response.number_attending %></td>
+    <td><%= link_to 'Show', guest_response %></td>
+    <td><%= link_to 'Edit', edit_guest_response_path(guest_response) %></td>
+    <td><%= link_to 'Destroy', guest_response, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guest response', new_guest_response_path %>

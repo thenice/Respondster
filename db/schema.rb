@@ -11,16 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110903155127) do
+ActiveRecord::Schema.define(:version => 20110906030031) do
+
+  create_table "flights", :force => true do |t|
+    t.integer  "guest_id"
+    t.string   "passenger_name"
+    t.string   "airline"
+    t.string   "flight_number"
+    t.string   "departure_city"
+    t.string   "arrival_city"
+    t.datetime "departure_time"
+    t.datetime "arrival_time"
+    t.boolean  "inbound"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "guest_responses", :force => true do |t|
+    t.integer  "guest_id"
+    t.integer  "number_attending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "guests", :force => true do |t|
-    t.string   "name"
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
     t.string   "country"
     t.integer  "number_of_guests"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "partner_name"
+    t.string   "guest_name"
+    t.string   "name_on_envelope"
+  end
+
+  create_table "hotel_bookings", :force => true do |t|
+    t.integer  "guest_id"
+    t.string   "guest_name"
+    t.string   "hotel_name"
+    t.datetime "check_in"
+    t.datetime "check_out"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

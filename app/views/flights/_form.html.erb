@@ -1,0 +1,53 @@
+<%= form_for(@flight) do |f| %>
+  <% if @flight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+
+      <ul>
+      <% @flight.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :guest_id %><br />
+    <%= f.number_field :guest_id %>
+  </div>
+  <div class="field">
+    <%= f.label :passenger_name %><br />
+    <%= f.text_field :passenger_name %>
+  </div>
+  <div class="field">
+    <%= f.label :airline %><br />
+    <%= f.text_field :airline %>
+  </div>
+  <div class="field">
+    <%= f.label :flight_number %><br />
+    <%= f.text_field :flight_number %>
+  </div>
+  <div class="field">
+    <%= f.label :departure_city %><br />
+    <%= f.text_field :departure_city %>
+  </div>
+  <div class="field">
+    <%= f.label :arrival_city %><br />
+    <%= f.text_field :arrival_city %>
+  </div>
+  <div class="field">
+    <%= f.label :departure_time %><br />
+    <%= f.datetime_select :departure_time %>
+  </div>
+  <div class="field">
+    <%= f.label :arrival_time %><br />
+    <%= f.datetime_select :arrival_time %>
+  </div>
+  <div class="field">
+    <%= f.label :inbound %><br />
+    <%= f.check_box :inbound %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
