@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  street_address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  country: MyString
+  number_of_guests: 1
+
+two:
+  name: MyString
+  street_address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  country: MyString
+  number_of_guests: 1

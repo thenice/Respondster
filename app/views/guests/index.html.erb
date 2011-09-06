@@ -1,0 +1,35 @@
+<h1>Listing guests</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Street address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Country</th>
+    <th>Number of guests</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @guests.each do |guest| %>
+  <tr>
+    <td><%= guest.name %></td>
+    <td><%= guest.street_address %></td>
+    <td><%= guest.city %></td>
+    <td><%= guest.state %></td>
+    <td><%= guest.zipcode %></td>
+    <td><%= guest.country %></td>
+    <td><%= guest.number_of_guests %></td>
+    <td><%= link_to 'Show', guest %></td>
+    <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
+    <td><%= link_to 'Destroy', guest, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guest', new_guest_path %>
