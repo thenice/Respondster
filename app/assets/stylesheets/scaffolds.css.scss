@@ -1,9 +1,38 @@
 body {
+  font-family: Georgia;
   background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+  color: #533930;
+  word-spacing: normal;
+  line-height: 1.2em;
+  font-weight: light;
+  font-size:1.3;
+  letter-spacing: -1px;
+  margin:0;
+}
+
+#response-area {
+  background: #f6f6f6;
+  padding: 20px;
+  width: 75%;
+  text-align: center;
+}
+
+.big {
+  font-size: 1.2em;
+  letter-spacing: 0px;
+}
+
+.big a {
+  color: #553c32;
+}
+
+.listed-flight {
+  background: #f6f6f6;
+  padding: 20px;
+  width: 75%;
+  text-align: left;
+  margin-bottom: 30px;
+}
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -16,12 +45,13 @@ pre {
   font-size: 11px; }
 
 a {
-  color: #000;
+  color: #553c32;
+  padding: 2px;
   &:visited {
     color: #666; }
   &:hover {
     color: #fff;
-    background-color: #000; } }
+    background-color: #553c32; } }
 
 div {
   &.field, &.actions {
@@ -44,7 +74,6 @@ div {
   background-color: #f0f0f0;
   h2 {
     text-align: left;
-    font-weight: bold;
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: -7px;

@@ -1,0 +1,10 @@
+<div id = "hotel-booking-<%= hotel_booking.id%>">
+  <%= label_tag :guest_names %> <%= hotel_booking.guest_name %><br />
+  <%= label_tag :hotel_name %> <%= hotel_booking.hotel_name %><br />
+  <%= label_tag :check_in %> <%= hotel_booking.check_in %><br />
+  <%= label_tag :check_out %> <%= hotel_booking.check_out %><br />
+  <%= label_tag :status %> <%= hotel_booking.status %>
+  <div id = "actions">
+    <%= link_to "edit", edit_hotel_booking_path(hotel_booking), :class => 'edit_link', :remote => true %>
+  </div>
+</div>

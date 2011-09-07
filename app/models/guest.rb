@@ -1,6 +1,8 @@
 class Guest < ActiveRecord::Base
   
   has_one :guest_response
+  has_many :flights
+  has_many :hotel_bookings
   
   # create a GuestResponse for this guest on create
   after_create Proc.new { |g| g.guest_response = GuestResponse.create }

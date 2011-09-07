@@ -53,6 +53,7 @@ class GuestsController < ApplicationController
   
   def select_match
     session[:guest_id] = params[:guests]
+    puts "USING GUEST ID: #{params[:guests]}"
     session[:guests] = nil
     redirect_to_dashboard
   end

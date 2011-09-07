@@ -1,0 +1,3 @@
+$("#editing-flight").remove();
+$("#flights").append("<%= escape_javascript render :partial => 'guest_responses/flight_show', :locals => { :flight => @flight } %>");
+$("#flight-<%= @flight.id %>").effect("highlight");

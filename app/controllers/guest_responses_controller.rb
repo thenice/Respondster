@@ -13,8 +13,8 @@ class GuestResponsesController < ApplicationController
   # GET /guest_responses/1
   # GET /guest_responses/1.json
   def show
-    @guest_response = GuestResponse.find(params[:id])
-
+    @guest = Guest.find(session[:guest_id])
+    @guest_response = @guest.guest_response
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @guest_response }

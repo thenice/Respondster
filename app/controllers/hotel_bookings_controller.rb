@@ -25,11 +25,6 @@ class HotelBookingsController < ApplicationController
   # GET /hotel_bookings/new.json
   def new
     @hotel_booking = HotelBooking.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @hotel_booking }
-    end
   end
 
   # GET /hotel_bookings/1/edit
@@ -41,15 +36,10 @@ class HotelBookingsController < ApplicationController
   # POST /hotel_bookings.json
   def create
     @hotel_booking = HotelBooking.new(params[:hotel_booking])
-
-    respond_to do |format|
-      if @hotel_booking.save
-        format.html { redirect_to @hotel_booking, notice: 'Hotel booking was successfully created.' }
-        format.json { render json: @hotel_booking, status: :created, location: @hotel_booking }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @hotel_booking.errors, status: :unprocessable_entity }
-      end
+    if @hotel_booking.save
+      @guest = Guest.find(session[:guest_id])
+      @guest.hotel_bookings << @hotel_booking
+    else
     end
   end
 
@@ -57,16 +47,7 @@ class HotelBookingsController < ApplicationController
   # PUT /hotel_bookings/1.json
   def update
     @hotel_booking = HotelBooking.find(params[:id])
-
-    respond_to do |format|
-      if @hotel_booking.update_attributes(params[:hotel_booking])
-        format.html { redirect_to @hotel_booking, notice: 'Hotel booking was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @hotel_booking.errors, status: :unprocessable_entity }
-      end
-    end
+    @hotel_booking.update_attributes(params[:hotel_booking])
   end
 
   # DELETE /hotel_bookings/1

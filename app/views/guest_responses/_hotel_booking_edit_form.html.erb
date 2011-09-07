@@ -1,0 +1,39 @@
+<div id = "editing-hotel-booking">
+  <%= form_for(hotel_booking, :remote => true) do |f| %>
+    <% if hotel_booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@hotel_booking.errors.count, "error") %> prohibited this hotel_booking from being saved:</h2>
+
+        <ul>
+        <% hotel_booking.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :guest_names %><br />
+      <%= f.text_field :guest_name %>
+    </div>
+    <div class="field">
+      <%= f.label :hotel_name %><br />
+      <%= f.text_field :hotel_name %>
+    </div>
+    <div class="field">
+      <%= f.label :check_in %><br />
+      <%= f.datetime_select :check_in %>
+    </div>
+    <div class="field">
+      <%= f.label :check_out %><br />
+      <%= f.datetime_select :check_out %>
+    </div>
+    <div class="field">
+      <%= f.label :status %><br />
+      <%= f.text_field :status %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

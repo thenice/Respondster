@@ -1,4 +1,23 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= flash[:notice] %></p>
 
 <%= render 'response_area' %>
 
+
+
+<div id = "flights">
+  <h1>Flight Information</h1>
+  <p>Please take a moment and let us know what flights you will be taking. This information will help us to coordinate transportation to and from the airport. We will be coordinating shuttles during peak arrival and departure times.</p>
+  <% @guest.flights.each do |flight| %>
+    <%= render :partial => 'flight_show', :locals => { :flight =>  flight } %>
+  <% end %>
+</div>
+<%= link_to "Add a flight", new_flight_path, :remote => true %>
+
+<div id = "hotel-bookings">
+  <h1>Accommodation Information</h1>
+   <p>Please let us know what hotel you are planning on staying at so they we can coordinate transportation.</p>
+  <% @guest.hotel_bookings.each do |hotel_booking| %>
+    <%= render :partial => 'hotel_booking_show', :locals => { :hotel_booking =>  hotel_booking } %>
+  <% end %>
+</div>
+<%= link_to "Add a hotel", new_hotel_booking_path, :remote => true %>

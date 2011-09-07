@@ -25,11 +25,6 @@ class FlightsController < ApplicationController
   # GET /flights/new.json
   def new
     @flight = Flight.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @flight }
-    end
   end
 
   # GET /flights/1/edit
@@ -41,31 +36,19 @@ class FlightsController < ApplicationController
   # POST /flights.json
   def create
     @flight = Flight.new(params[:flight])
-
-    respond_to do |format|
+    @guest = Guest.find(session[:guest_id])
       if @flight.save
-        format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
-        format.json { render json: @flight, status: :created, location: @flight }
+        @guest.flights << @flight
       else
-        format.html { render action: "new" }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PUT /flights/1
   # PUT /flights/1.json
   def update
     @flight = Flight.find(params[:id])
-
-    respond_to do |format|
-      if @flight.update_attributes(params[:flight])
-        format.html { redirect_to @flight, notice: 'Flight was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
-      end
+    if @flight.update_attributes(params[:flight])
+    else
     end
   end
 

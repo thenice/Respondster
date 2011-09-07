@@ -1,0 +1,1 @@
+$("#flight-<%= @flight.id %>").html("<%=escape_javascript render :partial => 'guest_responses/flight_edit_form', :locals => { :flight => @flight } %>");

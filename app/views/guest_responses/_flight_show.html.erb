@@ -1,0 +1,25 @@
+<div id = "flight-<%= flight.id %>" class = "listed-flight">
+  <%= flight.passenger_name %><br />
+  <strong>Passenger Names</strong><br /><br />
+  
+  <%= flight.airline %><br />
+  <strong>Airline</strong><br /><br />
+  
+  <%= flight.flight_number %><br />
+  <strong>Flight Number</strong><br /><br />
+  
+  <%= flight.departure_city %><br />
+  <strong>Departure City</strong><br /><br />
+  
+  <%= flight.arrival_city %><br />
+  <strong>Arrival City</strong><br /><br />
+  
+  <%= flight.arrival_time %><br />
+  <strong>Arrival Time</strong><br /><br />
+  
+  <br />
+    <div id = "actions">
+      <%= link_to "edit details", edit_flight_path(flight), :remote => true %> | <%= link_to "delete flight", "", :remote => true %>
+    </div>
+</div>
+

@@ -1,16 +1,61 @@
 <div id = "response-area">
+  <h1>Your Response</h1>
 <% if @guest_response.responded? %>
-  <h2>There are <%= @guest_response.number_attending %> attending</h2>
+  <div id = "number-attending">
+    <h3 style = "text-decoration:underline">There are <%= @guest_response.number_attending %> attending in your party</h3>
+    (Please call: 401-688-0171 to make any changes)
+  </div>
 <% else %>
-  <%= form_for(@guest_response) do |f| %>
-    <div class="field">
-      <%= f.label :number_attending %><br />
-      <%= f.number_field :number_attending %> of <%= @guest_response.guest.number_of_guests %>
-    </div>
-    <%= f.submit "Reply",
-      :confirm => "You can only reply once online. Are you sure?" %> (Please note that you must call in to change your reply)
+  <span class = "big">
+    <%= link_to_function "We would be delighted to attend!", "accept()", :class => 'attending' %> | <%= link_to_function "We regretfully decline", "decline()", :class => 'not-attending' %>
+  </span>
+  <div id = "reply-form">
+    <%= form_for(@guest_response) do |f| %>
+    <br />
+      <p class = "reply-fields">
+        <strong>Number of guests attending</strong>
+      <%= f.number_field :number_attending %> of <%= @guest_response.guest.number_of_guests %> guests</p>
+      <%= f.submit "Submit reply",
+        :confirm => "You can only reply once online. Are you sure?" %><br /><br /> (Please note that you must call in to change your reply)
+      </div>
   <% end %>
 <% end %>
 </div>
 
+<script>
+  $("#number-attending").hide();
+  $("#reply-form").hide();
+  
+  function accept() {
+    $("#number-attending").show();
+    $("#reply-form").show();
+    $(".reply-fields").show()
+    
+    $('.attending').css('background-color','#00beae')
+    $('.attending').css('color','#fff')
+    
+    $('.not-attending').css('background-color','#f6f6f6')
+    $('.not-attending').css('color','#553c32')
+  }
+  
+  function decline() {
+    $("#number-attending").hide();
+    $("#reply-form").hide();
+    
+    $('.attending').css('background-color','#f6f6f6')
+    $('.attending').css('color','#553c32')
+    
+    $('.not-attending').css('background-color','#00beae')
+    $('.not-attending').css('color','#fff')
+    
+    $("#reply-form").show();
+    $(".reply-fields").hide();
+    
+  }
+</script>
 
+<% if @guest_response.responded? %>
+  <script>
+    $("#number-attending").show();
+  </script>
+<% end %>

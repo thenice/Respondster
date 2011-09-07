@@ -4,13 +4,24 @@
   <title>Respondster</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+  <%= javascript_include_tag "jquery-rails.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Dannalise Wedding Response</h1>
-  <p>We sure hope you make it to the island!.</p>
-  <hr />
-<%= yield %>
+  
+  <div style = "float:left">
+    <%= image_tag "tree.jpg" %>
+    
+  </div>
+  <div style = "float:right; width: 600px">
+    <%= image_tag "header.jpg" %>
+    <%= yield %>
+  </div>
+  
+  
+
 
 </body>
 </html>

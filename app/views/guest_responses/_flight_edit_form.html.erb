@@ -1,0 +1,41 @@
+<div id = "editing-flight">
+  <%= form_for(flight, :remote => true) do |f| %>
+
+    <% if flight.errors.any? %>
+      <div id="error_explanation">
+        <%= pluralize(flight.errors.count, "error") %> prohibited this flight from being saved:
+        <ul>
+        <% flight.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :passenger_names %> <%= f.text_field :passenger_name %>
+    </div>
+    <div class="field">
+      <%= f.label :airline %> <%= f.text_field :airline %>
+    </div>
+    <div class="field">
+      <%= f.label :flight_number %> <%= f.text_field :flight_number %>
+    </div>
+    <div class="field">
+      <%= f.label :departure_city %> <%= f.text_field :departure_city %>
+    </div>
+    <div class="field">
+      <%= f.label :arrival_city %> <%= f.text_field :arrival_city, :value => 'MBJ' %>
+    </div>
+    <div class="field">
+      <%= f.label :departure_time %> <%= f.datetime_select :departure_time %>
+    </div>
+    <div class="field">
+      <%= f.label :arrival_time %> <%= f.datetime_select :arrival_time %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+  
+</div>

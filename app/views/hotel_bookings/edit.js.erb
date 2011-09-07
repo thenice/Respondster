@@ -1,0 +1,3 @@
+$('.edit_link').hide();
+
+$("#hotel-booking-<%= @hotel_booking.id %>").html("<%= escape_javascript render :partial => 'guest_responses/hotel_booking_edit_form', :locals => { :hotel_booking => @hotel_booking } %>");
