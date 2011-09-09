@@ -1,13 +1,59 @@
-<div id = "response-area">
-  <h1>Please enter your details</h1>
-  <strong><%= flash[:alert] %></strong>
-  <%= form_tag '/locate_guest', :method => 'POST' do %>
-    <%= label_tag :first_initial, 'First Initial' %>:
-    <%= text_field_tag :first_initial %><br />
-    <%= label_tag :last_name, 'Last Name' %>:
-    <%= text_field_tag :last_name %><br />
-    <%= label_tag :zipcode, 'Zip Code' %>:
-    <%= text_field_tag :zipcode %><br />
-    <%= submit_tag :Respond %><br />
+<div class = "span-20 prepend-2 clear" id = "steps">
+  <div class = "span-4" id = "step-1">
+    <div class = "span-4 clear">
+      <%= image_tag "1-selected.png" %>
+    </div>
+    <div class = "span-4 clear">
+      Enter details
+    </div>
+  </div>
+  <div class = "span-4" id = "step-2">
+    <div class = "span-4 clear">
+      <%= image_tag "2.png" %>
+    </div>
+    <div class = "span-4 clear">
+      Select invitation
+    </div>
+  </div>
+  <div class = "span-4" id = "step-3">
+    <div class = "span-4 clear">
+      <%= image_tag "3.png" %>
+    </div>
+    <div class = "span-4 clear">
+      Reply
+    </div>
+  </div>
+  <div class = "span-4" id = "step-4">
+    <div class = "span-4 clear">
+      <%= image_tag "4.png" %>
+    </div>
+    <div class = "span-4 clear">
+      Share itinerary
+    </div>
+  </div>
+</div>
+<div class = "span-17 prepend-3 clear" id = "page-header">
+  <% if flash[:alert] %>
+    <span style="background-color:red;color:#fff;font-size:1em;font-weight:bold;padding:5px;margin-top:-20px;">
+      <%= flash[:alert] %></span><br />
+    </span>
   <% end %>
+  Enter your details
+</div>
+<div class = "span-17 clear prepend-3" id = "content">
+  <p>Welcome to the Dannalise Wedding RSVP site. Please enter your information below to get started.</p>
+    <form accept-charset="UTF-8" action="/locate_guest" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="aTnbKI+Lu8RPogAjHocbny2HTdFqG3eL8AMqUYeBEFU=" /></div>
+      
+      <input id="first_initial" name="first_initial" type="text" /><br />
+      <label for="first_initial">First Initial</label><br /><br />
+      
+      <input id="last_name" name="last_name" type="text" /><br />
+      <label for="last_name">Last Name</label><br /><br />
+      
+      <input id="zipcode" name="zipcode" type="text" /><br />
+      <label for="zipcode">Zipcode</label><br /><br />
+      
+      <input name="commit" type="submit" value="Respond" /><br />
+  </form>
+  <br /><br />
 </div>

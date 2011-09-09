@@ -1,40 +1,6 @@
 class GuestsController < ApplicationController
-  # GET /guests
-  # GET /guests.json
-  def index
-    @guests = Guest.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @guests }
-    end
-  end
-
-  # GET /guests/1
-  # GET /guests/1.json
-  def show
-    @guest = Guest.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @guest }
-    end
-  end
-
-  # GET /guests/new
-  # GET /guests/new.json
   def new
-    @guest = Guest.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @guest }
-    end
-  end
-
-  # GET /guests/1/edit
-  def edit
-    @guest = Guest.find(params[:id])
   end
 
   def locate
@@ -108,7 +74,7 @@ class GuestsController < ApplicationController
   
   def redirect_to_dashboard
     @guest = Guest.find(session[:guest_id])
-    if (@guest.responded?)
+    if (not @guest.responded?)
       path = edit_guest_response_path(@guest.guest_response)
       alert = "Hello, #{@guest.guest_name}, Please respond below."
     else

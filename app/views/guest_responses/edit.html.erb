@@ -1,3 +1,95 @@
-<h1>Guest Response for <%= @guest_response.guest.name_on_envelope %></h1>
+<div class = "span-20 prepend-2 clear" id = "steps">
+    <div class = "span-4" id = "step-1">
+      <div class = "span-4 clear">
+        <%= image_tag "1.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Enter details
+      </div>
+    </div>
+    <div class = "span-4" id = "step-2">
+      <div class = "span-4 clear">
+        <%= image_tag "2.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Select invitation
+      </div>
+    </div>
+    <div class = "span-4" id = "step-3">
+      <div class = "span-4 clear">
+        <%= image_tag "3-selected.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Reply
+      </div>
+    </div>
+    <div class = "span-4" id = "step-4">
+      <div class = "span-4 clear">
+        <%= image_tag "4.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Share itinerary
+      </div>
+    </div>
+  </div>
+  
+  <div class = "span-17 prepend-3 clear" id = "page-header">
+    <% if flash[:error] %>
+      <span style="background-color:red;color:#fff;font-size:1em;font-weight:bold;padding:5px;margin-top:-20px;">
+        <%= flash[:error] %></span><br />
+      </span>
+    <% end %>
+    Reply for: <%= @guest_response.guest.name_on_envelope %>
+  </div>
+  
+  <div class = "span-17 clear prepend-3" id = "content">
+    <p>We sure hope you can make it!</p> 
+      <div class = "reply-box">
+        
+          <%= image_tag "yes.png" %> 
+          <%= link_to_function "Looking forward to it!", "yes()",
+            :class => "yes-link big selected_reponse", 
+            :style => "margin-right: 50px" %>
+          <%= image_tag "no.png" %> 
+          <%= link_to_function "We regretfully decline", "no()",
+            :class => "no-link big" %>
+          
+          <div id = "reply-form">
+            <br />
+            <%= form_for(@guest_response) do |f| %>
+              <div id = "number-of-guests-fields">
+                <%= f.number_field :number_attending,
+                  :value => @guest_response.guest.number_of_guests,
+                  :id => "number-attending" %> / <%= pluralize(@guest_response.guest.number_of_guests, "guest") %>
+                <br />
+                <strong>Number of guests attending</strong><br /><br />
+              </div>
+              <%= submit_tag "Submit reply",
+                :disable_with => "submitting your reply.. ",
+                :confirm => "You can only reply once online. Are you sure?" %>
+              <br /><br /> 
+              (Please note that you must call in to change your reply)
+            </div>
+          <% end %>
+        </div>
+      </div>
 
-<%= render 'response_area' %>
+<script>
+  function yes() {
+    $("#number-attending").show();
+    $('.yes-link').addClass("selected_reponse");
+    $('.no-link').removeClass("selected_reponse");
+    $('#number-of-guests-fields').show();
+    $('#number-attending').val("<%= @guest_response.guest.number_of_guests %>");
+  }
+  
+  function no() {
+    $("#number-attending").hide();
+    $('.no-link').addClass("selected_reponse");
+    $('.yes-link').removeClass("selected_reponse");
+    $('#number-of-guests-fields').hide();
+    $('#number-attending').val("0");
+  }
+  
+</script>
+

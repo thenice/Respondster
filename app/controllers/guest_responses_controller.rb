@@ -1,14 +1,5 @@
 class GuestResponsesController < ApplicationController
-  # GET /guest_responses
-  # GET /guest_responses.json
-  def index
-    @guest_responses = GuestResponse.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @guest_responses }
-    end
-  end
 
   # GET /guest_responses/1
   # GET /guest_responses/1.json
@@ -34,7 +25,8 @@ class GuestResponsesController < ApplicationController
 
   # GET /guest_responses/1/edit
   def edit
-    @guest_response = GuestResponse.find(params[:id])
+    @guest = Guest.find(session[:guest_id])
+    @guest_response = @guest.guest_response
     redirect_to(@guest_response) if (@guest_response.responded?)
   end
 
@@ -57,16 +49,12 @@ class GuestResponsesController < ApplicationController
   # PUT /guest_responses/1.json
   def update
     @guest_response = GuestResponse.find(params[:id])
-
-    respond_to do |format|
       if @guest_response.update_attributes(params[:guest_response])
-        format.html { redirect_to @guest_response, notice: 'Guest response was successfully updated.' }
-        format.json { head :ok }
+        redirect_to @guest_response, notice: 'Guest response was successfully updated.'
       else
-        format.html { render action: "edit" }
-        format.json { render json: @guest_response.errors, status: :unprocessable_entity }
+        flash[:error] = "Number attending must be between 1 and #{@guest_response.allowed_guests}"
+        render action: "edit"
       end
-    end
   end
 
   # DELETE /guest_responses/1
@@ -74,10 +62,5 @@ class GuestResponsesController < ApplicationController
   def destroy
     @guest_response = GuestResponse.find(params[:id])
     @guest_response.destroy
-
-    respond_to do |format|
-      format.html { redirect_to guest_responses_url }
-      format.json { head :ok }
-    end
   end
 end

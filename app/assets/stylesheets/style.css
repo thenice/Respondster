@@ -1,0 +1,68 @@
+body {
+  background-image: url('/assets/bg.png');
+  background-size: 2000px 3896px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#left-side { height: 10px;}
+#right-side { height: 10px;}
+#box {
+  background-color:#fff;
+  padding:2px;
+  margin-top: 1em;
+  border: 20px solid #10c4b1;
+}
+
+#steps {
+  text-align:center;
+}
+
+#page-header {
+  font-size: 2em;
+  font-weight:light;
+  margin-top: 1em;
+  color: #5c4942;
+}
+
+.guest-selection {
+  font-size: 1.5em;
+  line-height: 2em;
+  color: #505050;
+  font-weight: 100;
+}
+
+.reply-box {
+  width: 550px;
+  border: 1px solid #878787;
+  background-color: #efefef;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align:center;
+}
+
+.listed-content {
+  width: 250px;
+  background-color: #F3F3F3;
+  border: 1px solid #A0A0A0;
+  color: #1e1e1e;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align:left;
+}
+
+.editing-content {
+  width: 250px;
+  border: 4px solid #e7e7e7;
+  background-color: #FFFBF0;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align:left;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.selected_reponse { background-color: #FCFCFC; text-decoration:none; padding:5px;}
+
+.big { font-size: 1.4em;}
+.real-big { font-size: 2em;}

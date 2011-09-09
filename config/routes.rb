@@ -9,7 +9,8 @@ Rsvp::Application.routes.draw do
   match 'list_matches' => 'guests#list_matches', :as => 'list_matches'
   match 'select_match' => 'guests#select_match', :as => 'select_match'
   
-  
+  match 'new_inbound_flight' => 'flights#new_inbound', :as => 'new_inbound_flight'
+  match 'new_departing_flight' => 'flights#new_departing', :as => 'new_departing_flight'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

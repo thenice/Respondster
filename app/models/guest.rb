@@ -11,6 +11,10 @@ class Guest < ActiveRecord::Base
     guest_response.responded?
   end
   
+  def attending?
+     guest_response.number_attending > 0
+  end
+  
   def self.locate(first_initial,last_name, zipcode)
     return [] if ([first_initial,last_name, zipcode].include? "")
     guests = Guest.find(:all,

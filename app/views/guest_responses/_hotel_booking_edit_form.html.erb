@@ -12,28 +12,31 @@
       </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :guest_names %><br />
-      <%= f.text_field :guest_name %>
+    <!-- fields -->
+    <div class = "editing-content">
+      <%= f.text_field :guest_name, :size => 30 %><br />
+      <strong>Guest Names</strong><br />
+      <br />
+
+      <%= f.text_field :hotel_name, :size => 30 %><br />
+      <strong>Hotel Name</strong><br />
+      <br />
+
+      <%= f.date_select :check_in %><br />
+      <strong>Check In</strong><br />
+      <br />
+
+      <%= f.date_select :check_out %><br />
+      <strong>Check Out</strong><br />
+      <br />
+      <%= select( "hotel_booking", "status", ["Booked", "Reserved", "Planning on it"]) %>
+      <br />
+      <strong>Booking Status</strong><br />
+      <br />
+      <div class="actions">
+        <%= f.submit %>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :hotel_name %><br />
-      <%= f.text_field :hotel_name %>
-    </div>
-    <div class="field">
-      <%= f.label :check_in %><br />
-      <%= f.datetime_select :check_in %>
-    </div>
-    <div class="field">
-      <%= f.label :check_out %><br />
-      <%= f.datetime_select :check_out %>
-    </div>
-    <div class="field">
-      <%= f.label :status %><br />
-      <%= f.text_field :status %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+    <!-- /fields-->
   <% end %>
 </div>

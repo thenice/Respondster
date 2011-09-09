@@ -1,4 +1,4 @@
 $("#editing-hotel-booking").remove();
-$("#hotel-bookings").append("<%= escape_javascript render :partial => 'guest_responses/hotel_booking_show', :locals => { :hotel_booking => @hotel_booking } %>");
+$("#hotel-bookings").prepend("<%= escape_javascript render :partial => 'guest_responses/hotel_booking_show', :locals => { :hotel_booking => @hotel_booking } %>");
 $("#hotel-booking-<%= @hotel_booking.id %>").effect("highlight");
 $('.edit_link').show();

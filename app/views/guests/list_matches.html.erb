@@ -1,10 +1,52 @@
-<div id = "response-area">
-  <h1>Please find your invitation</h1>
-  <%= form_tag select_match_path, :method => 'post' do %>
-    <% @guests.each do |guest| %>
-      <%= radio_button_tag('guests', guest.id) %> <%= guest.name_on_envelope %><br />
-      <% end %>
-      <br />
-    <%= submit_tag "This is me." %>
-  <% end %>
-</div>
+<div class = "span-20 prepend-2 clear" id = "steps">
+    <div class = "span-4" id = "step-1">
+      <div class = "span-4 clear">
+        <%= image_tag "1.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Enter details
+      </div>
+    </div>
+    <div class = "span-4" id = "step-2">
+      <div class = "span-4 clear">
+        <%= image_tag "2-selected.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Select invitation
+      </div>
+    </div>
+    <div class = "span-4" id = "step-3">
+      <div class = "span-4 clear">
+        <%= image_tag "3.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Reply
+      </div>
+    </div>
+    <div class = "span-4" id = "step-4">
+      <div class = "span-4 clear">
+        <%= image_tag "4.png" %>
+      </div>
+      <div class = "span-4 clear">
+        Share itinerary
+      </div>
+    </div>
+  </div>
+  
+  <div class = "span-17 prepend-3 clear" id = "page-header">
+    Select your invitation
+  </div>
+  
+  <div class = "span-17 clear prepend-3" id = "content">
+    <p>Choose your invitation from the list below</p>
+    <%= form_tag select_match_path, :method => 'post' do %>
+      <% @guests.each do |guest| %>
+        <%= radio_button_tag('guests', guest.id) %> <%= guest.name_on_envelope %><br />
+        <% end %>
+        <br />
+      <%= submit_tag "This is me." %>
+      <br /><br />
+    <% end %>
+  </div>
+  
+  

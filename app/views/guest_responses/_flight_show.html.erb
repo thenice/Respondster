@@ -1,25 +1,43 @@
-<div id = "flight-<%= flight.id %>" class = "listed-flight">
-  <%= flight.passenger_name %><br />
-  <strong>Passenger Names</strong><br /><br />
-  
-  <%= flight.airline %><br />
-  <strong>Airline</strong><br /><br />
-  
-  <%= flight.flight_number %><br />
-  <strong>Flight Number</strong><br /><br />
-  
-  <%= flight.departure_city %><br />
-  <strong>Departure City</strong><br /><br />
-  
-  <%= flight.arrival_city %><br />
-  <strong>Arrival City</strong><br /><br />
-  
-  <%= flight.arrival_time %><br />
-  <strong>Arrival Time</strong><br /><br />
-  
-  <br />
-    <div id = "actions">
-      <%= link_to "edit details", edit_flight_path(flight), :remote => true %> | <%= link_to "delete flight", "", :remote => true %>
-    </div>
-</div>
+  <div id = "flight-<%= flight.id %>" class = "listed-flight">
+  <div class = "listed-content">
+    <%= image_tag flight.inbound? ? "in.png" : "out.png", :style => "float:right;clear:both" %>
+    <%= flight.passenger_name %><br/>
+    <strong>Passengers</strong><br />
+    <br />
+    
+    <%= flight.airline %><br/>
+    <strong>Airline</strong><br />
+    <br />
+    
+    <%= flight.flight_number %><br/>
+    <strong>Flight Number</strong><br />
+    <br />
+    
+    <% if flight.inbound? %>
+      <%= flight.departure_city %><br/>
+      <strong>Originating From</strong><br />
+      <br />
 
+      <%= flight.arrival_time.strftime("%B %d, %Y @ %I:%M%p") %><br/ >
+      <strong>Arrival Date and time</strong><br />
+      <br />
+      
+    <% else %>
+      <%= flight.arrival_city %><br/>
+      <strong>Arrival City</strong><br />
+      <br />
+
+      <%= flight.departure_time.strftime("%B %d, %Y @ %I:%M%p") %><br/ >
+      <strong>Departure Date and time</strong><br />
+      <br />
+      
+    <% end %>
+    
+    <div id = "actions">
+      <%= image_tag "edit.png" %> <%= link_to "edit details", edit_flight_path(flight),
+        :remote => true %> | <%= image_tag "remove.png" %> <%= link_to "delete flight", flight_path(flight), :method => "DELETE", :remote => true %>
+    </div>
+    
+  </div>
+  
+</div>

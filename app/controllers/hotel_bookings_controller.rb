@@ -55,10 +55,5 @@ class HotelBookingsController < ApplicationController
   def destroy
     @hotel_booking = HotelBooking.find(params[:id])
     @hotel_booking.destroy
-
-    respond_to do |format|
-      format.html { redirect_to hotel_bookings_url }
-      format.json { head :ok }
-    end
   end
 end

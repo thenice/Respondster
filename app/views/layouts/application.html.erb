@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Respondster</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
   <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
-  <%= javascript_include_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery-rails.js" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class = "container">
+    <div class = "span-2 prepend-top" id = "left-side"></div>
   
-  <div style = "float:left">
-    <%= image_tag "tree.jpg" %>
+    <div class = "span-20" id = "box">
+      <div class = "span-20 clear" id = "header">
+        <%= image_tag "header.jpg" %>
+      </div>
     
-  </div>
-  <div style = "float:right; width: 600px">
-    <%= image_tag "header.jpg" %>
-    <%= yield %>
-  </div>
+      <%= yield %>
+    </div>
   
-  
-
-
+  <div class = "span-2 clear" id = "right-side"></div>
+  </div>
 </body>
 </html>
+

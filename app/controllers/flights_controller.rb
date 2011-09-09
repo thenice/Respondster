@@ -1,14 +1,7 @@
 class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
-  def index
-    @flights = Flight.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @flights }
-    end
-  end
 
   # GET /flights/1
   # GET /flights/1.json
@@ -23,8 +16,19 @@ class FlightsController < ApplicationController
 
   # GET /flights/new
   # GET /flights/new.json
+  
+  def new_inbound
+    @flight = Flight.new(:inbound => true)
+    render :new
+  end
+  
+  def new_departing
+    @flight = Flight.new(:inbound => false)
+    render :new
+  end
+  
   def new
-    @flight = Flight.new
+    @flight = Flight.new(:inbound => false)
   end
 
   # GET /flights/1/edit
@@ -37,6 +41,7 @@ class FlightsController < ApplicationController
   def create
     @flight = Flight.new(params[:flight])
     @guest = Guest.find(session[:guest_id])
+    @flight.inbound = (params[:inbound] == "1")
       if @flight.save
         @guest.flights << @flight
       else
@@ -57,10 +62,6 @@ class FlightsController < ApplicationController
   def destroy
     @flight = Flight.find(params[:id])
     @flight.destroy
-
-    respond_to do |format|
-      format.html { redirect_to flights_url }
-      format.json { head :ok }
-    end
   end
+  
 end
