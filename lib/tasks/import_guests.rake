@@ -1,6 +1,6 @@
 namespace :import do
   task :guests_from_file => :environment do
-    require 'CSV'
+    require 'csv'
     import_file = File.new('guestlist.csv')
     arr = CSV.parse(import_file)
     arr[1..9999].each do |g|
