@@ -16,14 +16,14 @@
       <strong>List Passengers</strong><br />
       <br />
       <%= f.text_field :airline %><br />
-      <strong>Airline</strong><br />
+      <strong>Airline (Montego Bay flight)</strong><br />
       <br />
       <%= f.text_field :flight_number %><br />
-      <strong>Flight Number</strong><br />
+      <strong>Flight Number (Montego Bay flight)</strong><br />
       <br />
       <% if flight.inbound? %>
         <%= f.text_field :departure_city %><br />
-        <strong>Leaving from</strong><br />
+        <strong>Leaving from (Montego Bay flight)</strong><br />
         <br />
         <%= f.datetime_select :arrival_time,
           :discard_year => true,
@@ -31,12 +31,12 @@
           :use_short_month => true,
           :default => Date.parse("11/09/2011")
           %><br />
-        <strong>Arrival Time</strong><br />
+        <strong>Arriving in Montego Bay</strong><br />
         <br />
         <input type="hidden" id="inbound" name="inbound" value="1" />
       <% else %>
          <%= f.text_field :arrival_city %><br />
-          <strong>Arrival City</strong><br />
+          <strong>Arrival City (Montego Bay flight)</strong><br />
           <br />
           <%= f.datetime_select :departure_time,
             :discard_year => true,
@@ -44,7 +44,7 @@
             :use_short_month => true,
             :default => Date.parse("11/09/2011")
             %><br />
-          <strong>Departure Time</strong><br />
+          <strong>Departing Montego Bay</strong><br />
           <br />
           <input type="hidden" id="inbound" name="inbound" value="0" />
       <% end %>

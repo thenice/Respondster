@@ -60,9 +60,11 @@
               <div id = "number-of-guests-fields">
                 <%= f.number_field :number_attending,
                   :value => @guest_response.guest.number_of_guests,
-                  :id => "number-attending" %> / <%= pluralize(@guest_response.guest.number_of_guests, "guest") %>
-                <br />
+                  :id => "number-attending" %> / <%= pluralize(@guest_response.guest.number_of_guests, "guest") %><br />
                 <strong>Number of guests attending</strong><br /><br />
+                
+                <%= f.text_field :contact_email %><br />
+                <strong>Contact email</strong><br /><br />
               </div>
               <%= submit_tag "Submit reply",
                 :disable_with => "submitting your reply.. ",

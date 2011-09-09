@@ -5,7 +5,10 @@ class Guest < ActiveRecord::Base
   has_many :hotel_bookings
   
   # create a GuestResponse for this guest on create
-  after_create Proc.new { |g| g.guest_response = GuestResponse.create }
+  after_create Proc.new { |g|
+    r = GuestResponse.new(:guest_id => g.id)
+    r.save(:validate => false)
+  }
   
   def responded?
     guest_response.responded?
@@ -16,12 +19,11 @@ class Guest < ActiveRecord::Base
   end
   
   def self.locate(first_initial,last_name, zipcode)
-    return [] if ([first_initial,last_name, zipcode].include? "")
+    return [] if ([first_initial,last_name].include? "")
     guests = Guest.find(:all,
     :conditions => [
-      "(guest_name LIKE :name OR partner_name LIKE :name) AND zipcode = :zipcode",
-        { :name => "#{first_initial.first.capitalize}%#{last_name.capitalize}%",
-          :zipcode => zipcode
+      "(guest_name LIKE :name OR partner_name LIKE :name) ",
+        { :name => "#{first_initial.first.capitalize}%#{last_name.capitalize}%"
         }]
     )
   end
